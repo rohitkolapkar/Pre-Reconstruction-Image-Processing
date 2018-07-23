@@ -40,7 +40,6 @@ public class Pre_Reconstruction_Processes_ implements PlugIn, DialogListener{
 	long start_time;
 	short[][][] F;
 	short[][][] Fnew;
-	String source_dirpath;
 	String crop_destination_dirpath,noise_destination_dirpath,beamcorrection_destination_dirpath,flatfieldcorrection_destination_dirpath,sinogram_destination_dirpath,sinogram_correction_destination_dirpath;
 	String bck_filepath;
 	String ref_filepath;
@@ -51,7 +50,7 @@ public class Pre_Reconstruction_Processes_ implements PlugIn, DialogListener{
 		// TODO Auto-generated method stub
 		/*source_dirpath = IJ.getDirectory("Choose a Directory");
 		IJ.run("Image Sequence...", "open=["+source_dirpath+"] sort");*/
-		
+		source_imp = IJ.getImage();
 		
 		
 		// Create Gui and Start
@@ -74,30 +73,6 @@ public class Pre_Reconstruction_Processes_ implements PlugIn, DialogListener{
 		Dimension d_button=new Dimension();
 		d_button.height=25;
 		d_button.width=75;
-		
-		Dimension d_load_button=new Dimension();
-		d_load_button.height=25;
-		d_load_button.width=110;
-		
-		//openimageDirectory
-		TextField textField0 = new TextField("Choose Directory to open Image Stack");
-		textField0.setPreferredSize(d_textField);
-		textField0.setEditable(false);
-	
-		Button open_button=new Button("Load Image Data");
-		gd.add(open_button);
-		open_button.setPreferredSize(d_load_button);
-		
-		
-		open_button.addActionListener(new java.awt.event.ActionListener() {
-	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            	IJ.run("Image Sequence...");
-	            	source_imp = IJ.getImage();
-	            	
-	            }
-	        });
-		gd.addMessage("");
-		gd.addMessage("");
 		
 		
 		//crop
@@ -128,7 +103,6 @@ public class Pre_Reconstruction_Processes_ implements PlugIn, DialogListener{
 		
 		crop_save_button.addActionListener(new java.awt.event.ActionListener() {
 	            public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            	
 	            	crop_destination_dirpath = IJ.getDirectory("Choose a Directory to Save Cropped Image stack");
 	            	textField1.setText(crop_destination_dirpath);
 	            	
@@ -491,7 +465,6 @@ public class Pre_Reconstruction_Processes_ implements PlugIn, DialogListener{
 		// Run if ok is pressed
 		if (gd.wasOKed()){
 			
-		
 			if(flatfieldcorrection_type==1) {
         		if(bck_filepath==null||ref_filepath==null||flatfieldcorrection_destination_dirpath==null) {
         			IJ.showMessage("Flatfield Field Correction Enabled:"+"\n"+"Provide 1.Background img path 2.Reference img path 3.Save result path"+"\n"+"and run the plugin again");
