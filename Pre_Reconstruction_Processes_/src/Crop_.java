@@ -40,7 +40,7 @@ public class Crop_ implements PlugIn, DialogListener {
 		source_imp = IJ.getImage();
 		
 		
-		// Create Gui and Start
+		// Create Gui and Start app
 		createGui();
 		
 		// invoke garbage collection
