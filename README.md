@@ -1,5 +1,7 @@
 # Pre Reconstruction Image Processing Plugin For ImageJ
 
+ <a href="https://github.com/rohitkolapkar/Pre-Reconstruction-Image-Processing/releases/tag/v1.0.0"><img src="https://img.shields.io/github/v/release/rohitkolapkar/Pre-Reconstruction-Image-Processing" alt="GitHub Package Registry version" /></a>
+
 This project is sponsored by Bhabha Atomic Research Centre as a part of the Summer Practical Training 2017-2018 program: 
 
 1. **Organization:** [Bhabha Atomic Research Centre](http://www.barc.gov.in/)
